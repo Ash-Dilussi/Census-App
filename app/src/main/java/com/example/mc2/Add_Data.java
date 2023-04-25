@@ -117,7 +117,8 @@ public class Add_Data extends AppCompatActivity {
                 Cursor checkgetdata = DB.getdata();
                 if(checkgetdata.getCount() == 0){
                     Toast.makeText(Add_Data.this, "No Entry Exist", Toast.LENGTH_LONG).show();
-                    return;
+                    Intent i = new Intent(Add_Data.this,Add_Data.class);
+                    startActivity(i);
                 }
                 StringBuffer buffer = new StringBuffer();
                 while(checkgetdata.moveToNext()){

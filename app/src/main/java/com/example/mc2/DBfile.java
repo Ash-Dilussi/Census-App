@@ -20,7 +20,7 @@ public class DBfile extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase DB) {
-DB.execSQL("create Table Studentdetails(name TEXT primary key, age INT , gender TEXT,photo blob)");
+    DB.execSQL("create Table Studentdetails(name TEXT primary key, age INT , gender TEXT,photo blob)");
     }
 
     @Override
@@ -30,7 +30,10 @@ DB.execSQL("create Table Studentdetails(name TEXT primary key, age INT , gender 
     }
 
     public Boolean insertuserdata(String name, int age, String gender,byte[] img){
+
         SQLiteDatabase DB = this.getWritableDatabase();
+
+
         ContentValues contentValues= new ContentValues();
 
         contentValues.put("name",name);
@@ -55,6 +58,11 @@ DB.execSQL("create Table Studentdetails(name TEXT primary key, age INT , gender 
 
         return cursor;
 
+    }
+
+    public void cleardata(){
+        SQLiteDatabase DB = this.getWritableDatabase();
+        DB.execSQL("DELETE from Studentdetails");
     }
 
 
