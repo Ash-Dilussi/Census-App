@@ -71,10 +71,14 @@ public class LoginActivity extends AppCompatActivity {
                     String savedPassword = sharedPreferences.getString(PASSWORD_PREF_KEY, "");
                     if (password.equals(savedPassword)) {
                         startHomeScreen();
+                        passwordEditText.setHint("Re-enter password");
+                        passwordEditText.setText("");
+
                     } else {
                         count++;
                         Toast.makeText(LoginActivity.this, "Incorrect password. Please try again. ( " + count+ " )", Toast.LENGTH_SHORT).show();
-
+                        passwordEditText.setHint("Re-enter password");
+                        passwordEditText.setText("");
 
 
                         if (count == 3) {
