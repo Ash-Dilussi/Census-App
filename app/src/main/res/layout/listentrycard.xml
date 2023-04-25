@@ -105,6 +105,15 @@
         android:src="@drawable/baseline_image_24"
         android:background="#9D8FF8"
         android:padding="10dp" />
+
+        <ImageView
+            android:id="@+id/picview"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+
+            android:background="#9D8FF8"
+            android:padding="10dp" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

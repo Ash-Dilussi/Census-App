@@ -30,11 +30,14 @@
         android:id="@+id/name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:layout_marginTop="25dp"
         android:layout_below="@+id/enterdata"
+        android:layout_marginTop="32dp"
+        android:paddingVertical="8dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="25dp"
+        android:background="@drawable/entertext1"
         android:layout_toRightOf="@+id/txtname"
-        android:hint="Name"
+        android:hint="  Name"
         android:inputType="textPersonName"
         android:textSize="20dp" />
 
@@ -53,10 +56,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/txtage"
+        android:layout_marginRight="25dp"
         android:layout_below="@+id/name"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="25dp"
-        android:hint="Age"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="15dp"
+        android:paddingVertical="8dp"
+        android:background="@drawable/entertext1"
+        android:hint="  Age"
         android:inputType="number"
         android:textSize="20dp"
         />
@@ -78,8 +84,8 @@
         android:layout_toRightOf="@id/maleorfemale"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginLeft="20dp"
         android:orientation="horizontal">
 
         <RadioButton
@@ -94,45 +100,59 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="Female"
+            android:layout_marginLeft="40dp"
             android:textColor="@color/black"
            />
         </RadioGroup>
 
-    <ImageView
-        android:layout_width="150dp"
-        android:layout_height="200dp"
-        android:layout_weight= "1"
+    <ImageButton
+        android:layout_width="200dp"
+        android:layout_height="250dp"
         android:layout_below="@+id/radioBtnGroup"
-        android:id="@+id/imageview"
-        android:layout_marginTop="10dp"
         android:layout_centerHorizontal="true"
+        android:id="@+id/btnphotopic"
+        android:layout_marginTop="25dp"
+        android:layout_weight= "1"
+        android:background="@drawable/picback"
+        android:src="@drawable/outline_person_24"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
+
+        android:text="Photo"
         />
-    <Button
+
+
+
+
+
+
+    <!--<Button
         android:id="@+id/btnphoto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imageview"
-        android:layout_marginTop="40dp"
+        android:layout_below="@+id/btnphotopic"
+        android:layout_marginTop="30dp"
         android:layout_centerHorizontal="true"
         android:textSize="16dp"
         android:paddingVertical="10dp"
         android:paddingHorizontal="20dp"
         android:text="Capture Photo"
         />
+-->
 
 
-
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnsubmit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/btnphoto"
-        android:layout_marginTop="20dp"
+        android:layout_below="@+id/btnphotopic"
+        android:layout_marginTop="50dp"
         android:layout_centerHorizontal="true"
-        android:textSize="16dp"
+        android:textSize="20dp"
         android:textStyle="bold"
-        android:paddingVertical="10dp"
-        android:paddingHorizontal="20dp"
+        android:backgroundTint="@color/teal_700"
+        android:paddingVertical="15dp"
+        android:paddingHorizontal="45dp"
         android:text="Submit"
         />
 
@@ -142,7 +162,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/btnsubmit"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:layout_marginLeft="50dp"
         android:textSize="16dp"
         android:paddingVertical="10dp"
@@ -155,7 +175,7 @@
         android:id="@+id/listv"
         android:layout_below="@+id/btnsubmit"
         android:layout_marginLeft="25dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="15dp"
         android:layout_toRightOf="@id/btnview"
         android:text="List of Entries"
         />
