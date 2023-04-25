@@ -18,6 +18,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EdgeEffect;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -31,6 +32,7 @@ public class Add_Data extends AppCompatActivity {
     Button submit, view,btnimg,btnlistv;
     RadioGroup Rgroup;
     RadioButton RB;
+    ImageButton btnphoto;
 
     ImageView frame;
     byte[] imagebit;
@@ -45,9 +47,10 @@ public class Add_Data extends AppCompatActivity {
 
         namev = findViewById(R.id.name);
         agev = findViewById(R.id.age);
-        btnimg = findViewById(R.id.btnphoto);
+       // btnimg = findViewById(R.id.btnphoto);
         btnlistv = findViewById(R.id.listv);
-        frame = findViewById(R.id.imageview);
+        frame = findViewById(R.id.btnphotopic);
+        btnphoto = findViewById(R.id.btnphotopic);
 
         Rgroup = findViewById(R.id.radioBtnGroup);
 
@@ -75,7 +78,7 @@ public class Add_Data extends AppCompatActivity {
         }
 
 
-        btnimg.setOnClickListener(new View.OnClickListener() {
+        btnphoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i= new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
