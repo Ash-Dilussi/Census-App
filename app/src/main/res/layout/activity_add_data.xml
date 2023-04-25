@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Add_Data">
+
+    <TextView
+        android:id="@+id/enterdata"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:gravity="center"
+        android:text="Enter Data"
+        android:textSize="26dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtname"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@+id/enterdata"
+        android:text="Name"
+        android:textSize="20dp"/>
+
+
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="25dp"
+        android:layout_below="@+id/enterdata"
+        android:layout_toRightOf="@+id/txtname"
+        android:hint="Name"
+        android:inputType="textPersonName"
+        android:textSize="20dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtage"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/txtname"
+        android:text="Age"
+        android:textSize="20dp"/>
+
+    <EditText
+        android:id="@+id/age"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/txtage"
+        android:layout_below="@+id/name"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="25dp"
+        android:hint="Age"
+        android:inputType="number"
+        android:textSize="20dp"
+        />
+
+    <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:id="@+id/maleorfemale"
+        android:layout_below="@+id/txtage"
+        android:textColor="@color/black"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="50dp"
+    android:text="Male/ Female"
+    android:textSize="20dp"/>
+
+    <RadioGroup
+        android:id="@+id/radioBtnGroup"
+        android:layout_below="@id/age"
+        android:layout_toRightOf="@id/maleorfemale"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/maleRbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Male"
+            android:textColor="@color/black"/>
+
+        <RadioButton
+            android:id="@+id/femaleRbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Female"
+            android:textColor="@color/black"
+           />
+        </RadioGroup>
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="200dp"
+        android:layout_weight= "1"
+        android:layout_below="@+id/radioBtnGroup"
+        android:id="@+id/imageview"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        />
+    <Button
+        android:id="@+id/btnphoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageview"
+        android:layout_marginTop="40dp"
+        android:layout_centerHorizontal="true"
+        android:textSize="16dp"
+        android:paddingVertical="10dp"
+        android:paddingHorizontal="20dp"
+        android:text="Capture Photo"
+        />
+
+
+
+    <Button
+        android:id="@+id/btnsubmit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnphoto"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:textSize="16dp"
+        android:textStyle="bold"
+        android:paddingVertical="10dp"
+        android:paddingHorizontal="20dp"
+        android:text="Submit"
+        />
+
+
+    <Button
+        android:id="@+id/btnview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnsubmit"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="50dp"
+        android:textSize="16dp"
+        android:paddingVertical="10dp"
+        android:paddingHorizontal="40dp"
+        android:text="Get Data"
+        />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/listv"
+        android:layout_below="@+id/btnsubmit"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="20dp"
+        android:layout_toRightOf="@id/btnview"
+        android:text="List of Entries"
+        />
+
+
+
+
+</RelativeLayout>

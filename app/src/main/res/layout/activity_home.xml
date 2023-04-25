@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeScreen"
+    android:padding="10dp"
+    android:id="@+id/homelayout"
+    >
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:orientation="vertical"
+    android:layout_centerVertical="true"
+
+    android:gravity="center"
+    android:padding="10dp">
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="This App was developed by"
+        android:textColor="#000500"
+        android:textSize="25dp" />
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/parisrebell"
+        android:text="WIAD Fernando"
+        android:textColor="#A80B0B"
+        android:textSize="40dp" />
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="(D-BCE-21-0004)"
+        android:textSize="30dp"
+        android:textColor="#A80B0B"
+        android:fontFamily="@font/parisrebell"/>
+
+    <Button
+        android:id="@+id/btnpref"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_height="wrap_content"
+        android:text="Preferences" />
+
+    <Button
+        android:id="@+id/btndata"
+        android:layout_width="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content"
+        android:text="Enter Data" />
+
+</LinearLayout>
+
+
+</RelativeLayout>
