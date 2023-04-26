@@ -8,11 +8,13 @@ import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
@@ -22,6 +24,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
@@ -37,7 +40,10 @@ public class Add_Data extends AppCompatActivity {
     ImageView frame;
     byte[] imagebit;
     DBfile DB;
-    int picback;
+    RelativeLayout relativeLayout;
+    int savedbgcolor;
+    private static final String KEY_COLOR= "bgcolor";
+    SharedPreferences sharedPreferences;
 
 
     @Override
@@ -45,7 +51,14 @@ public class Add_Data extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_data);
 
+        relativeLayout = findViewById(R.id.adddata);
 
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(Add_Data.this);
+        savedbgcolor= sharedPreferences.getInt(KEY_COLOR,1);
+       // Toast.makeText(this, Integer.toString(savedbgcolor),Toast.LENGTH_LONG).show();
+
+        relativeLayout.setBackgroundColor(savedbgcolor);
+        
 
         namev = findViewById(R.id.name);
         agev = findViewById(R.id.age);
@@ -53,10 +66,6 @@ public class Add_Data extends AppCompatActivity {
         frame = findViewById(R.id.btnphotopic);
         btnphoto = findViewById(R.id.btnphotopic);
 
-
-        frame.setImageResource(R.drawable.picback);
-        frame.setTag(R.drawable.picback);
-        picback=(int) frame.getTag();
 
         Rgroup = findViewById(R.id.radioBtnGroup);
 

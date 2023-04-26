@@ -7,12 +7,14 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
@@ -20,6 +22,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
 
@@ -53,7 +56,9 @@ public class ListData extends AppCompatActivity {
     private static final String KEY_AGE = "Age";
     private static final String KEY_GENDER = "Gender";
     private static final String KEY_PHOTO = "";
-
+    private static final String KEY_COLOR= "bgcolor";
+    RelativeLayout relativeLayout;
+    SharedPreferences sharedPreferences;
     private FirebaseFirestore fierstore= FirebaseFirestore.getInstance();
 
     @Override
@@ -61,6 +66,12 @@ public class ListData extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_data);
 
+
+        relativeLayout= findViewById(R.id.listdata);
+
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        int savedbgcolor= sharedPreferences.getInt(KEY_COLOR,1);
+        relativeLayout.setBackgroundColor(savedbgcolor);
 
         btncloud = findViewById(R.id.tofirestore);
         //propic  = findViewById(R.id.pic);
@@ -131,19 +142,18 @@ public class ListData extends AppCompatActivity {
 
             Map<String,Object> listing = new HashMap<>();
             while(c.moveToNext()){
+
                 String studentname = c.getString(0);
                 storageReference = FirebaseStorage.getInstance().getReference().child("Profile_pics").child("image -"+ studentname+".jpg");
                 listing.put(KEY_NAME,c.getString(0)+"\n");
                 listing.put(KEY_AGE,c.getString(1)+"\n");
                 listing.put(KEY_GENDER,c.getString(2)+"\n");
-
                 imagebit = c.getBlob(3);
 
+                //image upload
                 storageReference.putBytes(imagebit);
 
-
-
-
+                //data sending
                 fierstore.collection("Census_App").document(studentname).set(listing)
 
                         .addOnSuccessListener(new OnSuccessListener<Void>() {

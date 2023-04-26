@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Add_Data">
+    tools:context=".Add_Data"
+    android:id="@+id/adddata">
 
     <TextView
         android:id="@+id/enterdata"

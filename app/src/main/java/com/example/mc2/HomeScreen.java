@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.text.Html;
 import android.text.TextDirectionHeuristic;
 import android.view.View;
@@ -21,28 +23,27 @@ public class HomeScreen extends AppCompatActivity {
     RelativeLayout relativeLayout;
 
     public int defaultcolor;
+    private static final String KEY_COLOR= "bgcolor";
+    private SharedPreferences sharedPreferences;
 
 
-    ActivityMainBinding binding;
-    TextView disnote;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        relativeLayout= findViewById(R.id.homelayout);
 
-
-        /*binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
-
-        disnote.setText("  ");*/
+       sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+         int savedbgcolor= sharedPreferences.getInt(KEY_COLOR,1);
+            relativeLayout.setBackgroundColor(savedbgcolor);
 
         bgbutton = findViewById(R.id.btnpref);
         databutton = findViewById(R.id.btndata);
 
 
-        relativeLayout= findViewById(R.id.homelayout);
+
 
         defaultcolor = ContextCompat.getColor(HomeScreen.this, com.google.android.material.R.color.design_default_color_primary);
 
@@ -69,15 +70,18 @@ public class HomeScreen extends AppCompatActivity {
         AmbilWarnaDialog ambilWarnaDialog= new AmbilWarnaDialog(this, defaultcolor, new AmbilWarnaDialog.OnAmbilWarnaListener() {
             @Override
             public void onCancel(AmbilWarnaDialog dialog) {
-
+             return;
             }
 
             @Override
             public void onOk(AmbilWarnaDialog dialog, int color) {
 
 
+
                 defaultcolor =  color;
                 relativeLayout.setBackgroundColor(defaultcolor);
+                sharedPreferences = PreferenceManager.getDefaultSharedPreferences(HomeScreen.this);
+               sharedPreferences.edit().putInt(KEY_COLOR, defaultcolor).apply();
 
 
             }

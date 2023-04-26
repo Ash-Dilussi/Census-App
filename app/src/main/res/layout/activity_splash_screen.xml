@@ -10,12 +10,29 @@
     <ProgressBar
         android:id="@+id/pBar"
         android:layout_width="110dp"
-        android:layout_height="110dp"
+        android:layout_height="0dp"
 
+        android:layout_marginBottom="310dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
         app:layout_editor_absoluteX="50dp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="235dp"
+        android:layout_marginBottom="57dp"
+        android:text="Starting Census App....."
+        android:layout_marginHorizontal="50dp"
+        android:textSize="25dp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toTopOf="@+id/pBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
