@@ -14,6 +14,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Toast;
@@ -22,6 +23,9 @@ import com.google.android.gms.tasks.OnCanceledListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -37,6 +41,10 @@ public class ListData extends AppCompatActivity {
     Button picview,btncloud;
     RAdapter radapter;
 
+    byte[] imagebit;
+    ImageView propic;
+    StorageReference storageReference;
+
     private static final String KEY_NAME = "Student Name";
     private static final String KEY_AGE = "Age";
     private static final String KEY_GENDER = "Gender";
@@ -51,7 +59,7 @@ public class ListData extends AppCompatActivity {
 
 
         btncloud = findViewById(R.id.tofirestore);
-
+        //propic  = findViewById(R.id.pic);
 
         DB = new DBfile(this);
         name = new ArrayList<>();
@@ -112,6 +120,7 @@ public class ListData extends AppCompatActivity {
             return;
         }else{
 
+            storageReference = FirebaseStorage.getInstance().getReference().child("Profile_pics");
             Map<String,Object> listing = new HashMap<>();
             while(c.moveToNext()){
 
@@ -119,9 +128,15 @@ public class ListData extends AppCompatActivity {
                 listing.put(KEY_AGE,c.getString(1)+"\n");
                 listing.put(KEY_GENDER,c.getString(2)+"\n");
 
+                imagebit = c.getBlob(3);
+
+                storageReference.putBytes(imagebit);
+
+
                 String studentname = c.getString(0);
 
                 fierstore.collection("Census_App").document(studentname).set(listing)
+
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void unused) {
@@ -143,6 +158,40 @@ public class ListData extends AppCompatActivity {
         }
 
 
+    }
+
+
+    private void uploadimage(){
+
+        storageReference = FirebaseStorage.getInstance().getReference().child("Profile_pics");
+
+        Cursor c = DB.getdata();
+        if(c.getCount()==0){
+            Toast.makeText(ListData.this,"No data to Push",Toast.LENGTH_LONG).show();
+            return;
+        }else{
+            while(c.moveToNext()){
+
+
+            }
+
+
+            /*    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        Toast.makeText(ListData.this, "Pic Sent", Toast.LENGTH_LONG).show();
+
+                    }
+                })*//*
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+
+                        Toast.makeText(ListData.this,"Success Upload",Toast.LENGTH_LONG).show();
+                        Log.d("From Upload", e.toString());
+                    }
+                })*/;
+        }
     }
 
 
