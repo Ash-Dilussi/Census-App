@@ -62,7 +62,7 @@ public class LoginActivity extends AppCompatActivity {
             userEdit.setVisibility(View.INVISIBLE);
             String usernamev = sharedPreferences.getString("user","");
 
-            username.setText("Welcome "+ usernamev);
+            username.setText("Welcome  "+ usernamev);
             loginButton.setText("Login");
             loginButton.setOnClickListener(new View.OnClickListener() {
                 @Override

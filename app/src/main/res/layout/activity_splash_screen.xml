@@ -4,7 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SplashScreen"
-    android:background="@drawable/sscreen">
+    android:background="@drawable/sscreen"
+    tools:context=".SplashScreen">
+
+    <ProgressBar
+        android:id="@+id/pBar"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_editor_absoluteX="50dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

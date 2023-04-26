@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
 <gradient android:angle="@integer/material_motion_duration_long_1"/>
-    <stroke android:width="8dp"
+    <stroke android:width="6dp"
         android:dashGap="20dp"
         android:dashWidth="40dp"
         android:color="#000000"
@@ -9,8 +9,8 @@
 
     <corners android:radius="40dp"/>
     <gradient android:angle="25"
-        android:centerColor="#373737"
-        android:startColor="#BCB9B9"
-        android:endColor="#BCB9B9"/>
+        android:centerColor="#5C5C5C"
+        android:startColor="#D8D6D6"
+        android:endColor="#E3E0E0"/>
 
 </shape>

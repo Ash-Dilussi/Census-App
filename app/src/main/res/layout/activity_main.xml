@@ -13,11 +13,16 @@
         android:gravity="center"
         android:orientation="vertical" >
 
+        <ImageView
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:src="@drawable/logoimg"/>
+
         <TextView
             android:id="@+id/usertext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
+            android:layout_marginTop="60dp"
             android:fitsSystemWindows="true"
             android:fontFamily="@font/abril_fatface"
             android:textSize="32dp"
@@ -29,10 +34,11 @@
             android:id="@+id/txtuserid"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:background="@android:drawable/editbox_background_normal"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/entertext1"
             android:hint="Enter UserId"
-            android:padding="12dp"
+            android:padding="18dp"
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="240dp"
             tools:ignore="MissingConstraints" />
@@ -41,15 +47,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:passwordToggleEnabled="true"
+            android:layout_marginTop="20dp"
             >
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/txtpassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:background="@android:drawable/editbox_background_normal"
+            android:background="@drawable/entertext1"
+            android:padding="18dp"
 
-            android:padding="12dp"
             android:inputType="textPassword"
             tools:ignore="MissingConstraints" />
         </com.google.android.material.textfield.TextInputLayout>
@@ -60,14 +67,23 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:text="Login"
-            tools:layout_editor_absoluteY="433dp" />
+            android:fontFamily="@font/btntxt"
+            android:textStyle="bold"
+            android:textSize="25dp"
+            android:padding="18dp"
+            tools:layout_editor_absoluteY="433dp"
+            />
 
         <Button
             android:id="@+id/btnlogout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:text="Login"
+            android:fontFamily="@font/btntxt"
+            android:textStyle="bold"
+            android:textSize="25dp"
+            android:padding="18dp"
             tools:layout_editor_absoluteY="433dp" />
 
 

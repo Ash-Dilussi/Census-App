@@ -12,8 +12,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
         android:gravity="center"
-        android:text="Enter Data"
-        android:textSize="26dp" />
+        android:text="Enter  Data"
+        android:textColor="@color/black"
+        android:fontFamily="@font/textview"
+        android:textSize="40dp" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -23,7 +25,8 @@
         android:layout_marginLeft="20dp"
         android:layout_below="@+id/enterdata"
         android:text="Name"
-        android:textSize="20dp"/>
+        android:fontFamily="@font/textview"
+        android:textSize="30dp"/>
 
 
     <EditText
@@ -49,7 +52,8 @@
         android:layout_marginTop="30dp"
         android:layout_below="@+id/txtname"
         android:text="Age"
-        android:textSize="20dp"/>
+        android:fontFamily="@font/textview"
+        android:textSize="30dp"/>
 
     <EditText
         android:id="@+id/age"
@@ -72,11 +76,11 @@
     android:layout_height="wrap_content"
     android:id="@+id/maleorfemale"
         android:layout_below="@+id/txtage"
-        android:textColor="@color/black"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="35dp"
     android:text="Male/ Female"
-    android:textSize="20dp"/>
+        android:fontFamily="@font/textview"
+        android:textSize="30dp"/>
 
     <RadioGroup
         android:id="@+id/radioBtnGroup"
@@ -84,7 +88,7 @@
         android:layout_toRightOf="@id/maleorfemale"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="38dp"
         android:layout_marginLeft="20dp"
         android:orientation="horizontal">
 
@@ -92,13 +96,18 @@
             android:id="@+id/maleRbtn"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:textSize="20dp"
+            android:fontFamily="@font/textview"
             android:text="Male"
+            android:layout_marginLeft="20dp"
             android:textColor="@color/black"/>
 
         <RadioButton
             android:id="@+id/femaleRbtn"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:textSize="20dp"
+            android:fontFamily="@font/textview"
             android:text="Female"
             android:layout_marginLeft="40dp"
             android:textColor="@color/black"
@@ -141,19 +150,21 @@
 -->
 
 
-    <com.google.android.material.button.MaterialButton
+    <Button
         android:id="@+id/btnsubmit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/btnphotopic"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="40dp"
         android:layout_centerHorizontal="true"
-        android:textSize="20dp"
         android:textStyle="bold"
-        android:backgroundTint="@color/teal_700"
+        android:background="@drawable/button1"
+        android:textColor="#139E93"
+        android:textSize="20dp"
+        android:fontFamily="@font/btntxt"
         android:paddingVertical="15dp"
         android:paddingHorizontal="45dp"
-        android:text="Submit"
+        android:text="S u b m i t"
         />
 
 
@@ -162,11 +173,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/btnsubmit"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="25dp"
         android:layout_marginLeft="50dp"
-        android:textSize="16dp"
-        android:paddingVertical="10dp"
-        android:paddingHorizontal="40dp"
+        android:textSize="15dp"
+        android:background="@drawable/button2"
+        android:textStyle="bold"
+        android:fontFamily="@font/btntxt"
+        android:paddingHorizontal="35dp"
         android:text="Get Data"
         />
     <Button
@@ -174,10 +187,15 @@
         android:layout_height="wrap_content"
         android:id="@+id/listv"
         android:layout_below="@+id/btnsubmit"
-        android:layout_marginLeft="25dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="25dp"
         android:layout_toRightOf="@id/btnview"
         android:text="List of Entries"
+        android:textSize="15dp"
+        android:textStyle="bold"
+        android:paddingHorizontal="15dp"
+        android:background="@drawable/button2"
+        android:fontFamily="@font/btntxt"
         />
 
 
