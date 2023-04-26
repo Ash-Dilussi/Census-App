@@ -38,6 +38,7 @@
             android:layout_marginTop="25dp"
             android:background="@drawable/entertext1"
             android:hint="Enter UserId"
+            android:drawableLeft="@drawable/person_circle_24"
             android:padding="18dp"
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="240dp"
@@ -48,6 +49,7 @@
             android:layout_height="wrap_content"
             app:passwordToggleEnabled="true"
             android:layout_marginTop="20dp"
+            app:startIconDrawable="@drawable/lock_24"
             >
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/txtpassword"

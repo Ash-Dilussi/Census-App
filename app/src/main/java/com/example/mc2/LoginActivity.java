@@ -42,7 +42,7 @@ public class LoginActivity extends AppCompatActivity {
             // Ask the user to set a new password
             passwordEditText.setHint("Enter a new password");
             username.setText("Welcome !");
-            userEdit.setHint("Enter your Name");
+            userEdit.setHint("  Enter your Name");
            logoutButton.setVisibility(View.GONE);
             loginButton.setText("Register");
             loginButton.setOnClickListener(new View.OnClickListener() {
