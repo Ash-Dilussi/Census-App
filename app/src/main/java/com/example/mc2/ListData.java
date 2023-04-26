@@ -6,10 +6,14 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -120,10 +124,15 @@ public class ListData extends AppCompatActivity {
             return;
         }else{
 
-            storageReference = FirebaseStorage.getInstance().getReference().child("Profile_pics");
+            final ProgressDialog pd= new ProgressDialog(this);
+            pd.setMessage("Uploading");
+            pd.show();
+
+
             Map<String,Object> listing = new HashMap<>();
             while(c.moveToNext()){
-
+                String studentname = c.getString(0);
+                storageReference = FirebaseStorage.getInstance().getReference().child("Profile_pics").child("image -"+ studentname+".jpg");
                 listing.put(KEY_NAME,c.getString(0)+"\n");
                 listing.put(KEY_AGE,c.getString(1)+"\n");
                 listing.put(KEY_GENDER,c.getString(2)+"\n");
@@ -133,21 +142,25 @@ public class ListData extends AppCompatActivity {
                 storageReference.putBytes(imagebit);
 
 
-                String studentname = c.getString(0);
+
 
                 fierstore.collection("Census_App").document(studentname).set(listing)
 
                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                             @Override
                             public void onSuccess(Void unused) {
+                                pd.dismiss();
                                 Toast.makeText(ListData.this,"Save to Cloud",Toast.LENGTH_LONG).show();
+
                                 DB.cleardata();
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {
                             @Override
                             public void onFailure(@NonNull Exception e) {
+                                pd.dismiss();
                                 Toast.makeText(ListData.this,"Error !! Not Saved to Cloud",Toast.LENGTH_LONG).show();
+
                                 String Tag= "ListData";
                                 Log.d( Tag, e.toString());
 
@@ -160,7 +173,7 @@ public class ListData extends AppCompatActivity {
 
     }
 
-
+/*
     private void uploadimage(){
 
         storageReference = FirebaseStorage.getInstance().getReference().child("Profile_pics");
@@ -176,13 +189,13 @@ public class ListData extends AppCompatActivity {
             }
 
 
-            /*    .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+               .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                     @Override
                     public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                         Toast.makeText(ListData.this, "Pic Sent", Toast.LENGTH_LONG).show();
 
                     }
-                })*//*
+                })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
@@ -190,14 +203,15 @@ public class ListData extends AppCompatActivity {
                         Toast.makeText(ListData.this,"Success Upload",Toast.LENGTH_LONG).show();
                         Log.d("From Upload", e.toString());
                     }
-                })*/;
+                });
         }
-    }
+    }*/
 
 
     private void displaydata() {
 
         Cursor cursor = DB.getdata();
+
         if(cursor.getCount()==0)
         {
             Toast.makeText(ListData.this, "No Entry Exist",Toast.LENGTH_LONG).show();
@@ -208,6 +222,10 @@ public class ListData extends AppCompatActivity {
                 name.add(cursor.getString(0));
                 age.add(cursor.getString(1));
                 gender.add(cursor.getString(2));
+
+             /*   Bitmap bitmap = BitmapFactory.decodeByteArray(cursor.getBlob(3), 0, 5);
+
+                propic.setImageBitmap(bitmap);*/
             }
         }
     }

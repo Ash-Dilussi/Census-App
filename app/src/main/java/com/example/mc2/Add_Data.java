@@ -37,6 +37,8 @@ public class Add_Data extends AppCompatActivity {
     ImageView frame;
     byte[] imagebit;
     DBfile DB;
+    int picback;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,10 +49,14 @@ public class Add_Data extends AppCompatActivity {
 
         namev = findViewById(R.id.name);
         agev = findViewById(R.id.age);
-       // btnimg = findViewById(R.id.btnphoto);
         btnlistv = findViewById(R.id.listv);
         frame = findViewById(R.id.btnphotopic);
         btnphoto = findViewById(R.id.btnphotopic);
+
+
+        frame.setImageResource(R.drawable.picback);
+        frame.setTag(R.drawable.picback);
+        picback=(int) frame.getTag();
 
         Rgroup = findViewById(R.id.radioBtnGroup);
 
