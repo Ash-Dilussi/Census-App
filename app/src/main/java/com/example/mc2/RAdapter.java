@@ -2,10 +2,12 @@ package com.example.mc2;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.media.Image;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,7 +20,7 @@ public class RAdapter extends RecyclerView.Adapter<RAdapter.MyViewHolder>{
 
     private Context context;
     private ArrayList namev, agev, genderv;
-    Button btnpic;
+    ImageButton btnpic;
     ImageView frame;
 
 
@@ -64,7 +66,7 @@ public class RAdapter extends RecyclerView.Adapter<RAdapter.MyViewHolder>{
             namev = itemView.findViewById(R.id.listname);
             agev = itemView.findViewById(R.id.listage);
             genderv = itemView.findViewById(R.id.listgender);
-           // btnpic = itemView.findViewById(R.id.pic);
+
 
 
             };

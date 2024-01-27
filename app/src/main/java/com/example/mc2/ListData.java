@@ -183,6 +183,35 @@ public class ListData extends AppCompatActivity {
 
     }
 
+
+
+
+    private void displaydata() {
+
+        Cursor cursor = DB.getdata();
+
+        if(cursor.getCount()==0)
+        {
+            Toast.makeText(ListData.this, "No Entry Exist",Toast.LENGTH_LONG).show();
+        }
+
+        else{
+            while(cursor.moveToNext()){
+                name.add(cursor.getString(0));
+                age.add(cursor.getString(1));
+                gender.add(cursor.getString(2));
+
+             /*   Bitmap bitmap = BitmapFactory.decodeByteArray(cursor.getBlob(3), 0, 5);
+
+                propic.setImageBitmap(bitmap);*/
+            }
+        }
+    }
+}
+
+
+
+
 /*
     private void uploadimage(){
 
@@ -216,27 +245,3 @@ public class ListData extends AppCompatActivity {
                 });
         }
     }*/
-
-
-    private void displaydata() {
-
-        Cursor cursor = DB.getdata();
-
-        if(cursor.getCount()==0)
-        {
-            Toast.makeText(ListData.this, "No Entry Exist",Toast.LENGTH_LONG).show();
-        }
-
-        else{
-            while(cursor.moveToNext()){
-                name.add(cursor.getString(0));
-                age.add(cursor.getString(1));
-                gender.add(cursor.getString(2));
-
-             /*   Bitmap bitmap = BitmapFactory.decodeByteArray(cursor.getBlob(3), 0, 5);
-
-                propic.setImageBitmap(bitmap);*/
-            }
-        }
-    }
-}
